@@ -46,12 +46,21 @@ const admin = require ("./routes/admin");
 // route middlewares
 app.use("/api/user", authRouters);
 app.use("/api/admin", verifyToken, admin);
-app.get('/', (req, res) => {
-    res.json({
-        estado: true,
-        mensaje: 'alive!'
-    })
-});
+
+// Esto era solo para probar que funciona
+// app.get('/', (req, res) => {
+//     res.json({
+//         estado: true,
+//         mensaje: 'alive!'
+//     })
+// });
+
+//Esto sirve para poder hacer que no salga el # cuando usamos las apps
+//Además es importante saber que esto solo sirve cuando el proyecto está en una carpeta public, no cuando solo consumimos la API
+
+const history = require('connect-history-api-fallback');
+app.use(history());
+app.use(express.static(__dirname + "/public"));
 
 // iniciar server
 const PORT = process.env.PORT || 3001;
