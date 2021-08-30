@@ -52,9 +52,10 @@ router.post("/register", async(req, res) => {
     
     // Con esto valida los usuarios y termina la función sin enviar ni pincho a la DB
     if (error) {
+        console.error('Ya la cagaste parce la estructura está mal');
         return res.status(400).json(
             {error: error.details[0].message}
-        )
+            )
     }
 
     //Ahora validacmos si ya está registrado
