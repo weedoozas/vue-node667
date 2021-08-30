@@ -16,7 +16,7 @@ require('dotenv').config()
 // cors
 const cors = require('cors');
 var corsOptions = {
-    origin: "http://localhost:8080/", // Reemplazar con dominio
+    origin: "http://localhost:8080", // Reemplazar con dominio
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions));
